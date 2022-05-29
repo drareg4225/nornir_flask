@@ -7,8 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def welcome():
     results = show_data()
-    output_data
-    return render_template("CPU_UTIL.html", firewalls = results )
+    return render_template("CPU_UTIL.html", results = results.keys() )
 
 
 if __name__ == "__main__":        # on running python app.py

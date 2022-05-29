@@ -677,3 +677,1035 @@ napalm.base.exceptions.ModuleImportError: Cannot import "cisco_asa". Is the libr
 2022-05-29 09:31:04,837 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
 2022-05-29 09:31:57,371 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
 2022-05-29 09:37:26,583 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-29 09:54:37,789 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-29 09:54:42,798 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+
+2022-05-29 09:54:42,798 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+
+2022-05-29 09:54:42,798 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.241:22
+
+
+
+2022-05-29 09:54:42,799 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:54:42,799 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:54:42,799 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:55:02,175 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-29 09:55:07,181 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+
+2022-05-29 09:55:07,181 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:55:07,182 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.241:22
+
+
+
+2022-05-29 09:55:07,182 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:55:07,182 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+
+2022-05-29 09:55:07,182 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:55:40,764 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-29 09:55:45,770 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.241:22
+
+
+
+2022-05-29 09:55:45,770 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:55:45,771 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+
+2022-05-29 09:55:45,771 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:55:45,771 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+
+2022-05-29 09:55:45,771 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:56:21,761 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-29 09:56:26,765 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+
+2022-05-29 09:56:26,765 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:56:26,768 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.241:22
+
+
+
+2022-05-29 09:56:26,769 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:56:26,769 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+
+2022-05-29 09:56:26,769 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:57:37,662 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-29 09:57:42,673 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+
+2022-05-29 09:57:42,674 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.241:22
+
+
+
+2022-05-29 09:57:42,674 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+
+2022-05-29 09:57:42,675 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:57:42,674 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:57:42,674 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:58:30,131 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-29 09:58:35,139 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+
+2022-05-29 09:58:35,139 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.241:22
+
+
+
+2022-05-29 09:58:35,139 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/util.py", line 279, in retry_on_signal
+    return function()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+
+2022-05-29 09:58:35,140 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:58:35,140 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-29 09:58:35,140 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test2.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
