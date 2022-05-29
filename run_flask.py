@@ -7,7 +7,6 @@ app = Flask(__name__)
 @app.route("/")
 def welcome():
     results = show_data()
-    output_data
     return render_template("CPU_UTIL.html", firewalls = results )
 
 
