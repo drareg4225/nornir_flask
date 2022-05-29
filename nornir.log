@@ -1,0 +1,679 @@
+2022-05-28 12:07:03,097 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-28 12:07:03,267 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 766, in _auth
+    raise saved_exception
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 753, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/transport.py", line 1564, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/auth_handler.py", line 259, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 972, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.ssh_exception.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+Authentication failed.
+
+2022-05-28 12:07:03,268 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test.py", line 18, in show_output
+    task.run(task=netmiko_send_command, command_string = "show int ip brief")
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2022-05-28 12:07:03,273 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 766, in _auth
+    raise saved_exception
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 753, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/transport.py", line 1564, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/auth_handler.py", line 259, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 972, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.ssh_exception.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+Authentication failed.
+
+2022-05-28 12:07:03,273 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test.py", line 18, in show_output
+    task.run(task=netmiko_send_command, command_string = "show int ip brief")
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2022-05-28 12:07:11,259 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-28 12:07:11,413 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 766, in _auth
+    raise saved_exception
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 753, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/transport.py", line 1564, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/auth_handler.py", line 259, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 972, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.ssh_exception.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+Authentication failed.
+
+2022-05-28 12:07:11,414 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test.py", line 18, in show_output
+    task.run(task=netmiko_send_command, command_string = "show int ip brief")
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2022-05-28 12:07:11,419 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 766, in _auth
+    raise saved_exception
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 753, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/transport.py", line 1564, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/auth_handler.py", line 259, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 972, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.ssh_exception.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+Authentication failed.
+
+2022-05-28 12:07:11,419 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test.py", line 18, in show_output
+    task.run(task=netmiko_send_command, command_string = "show int ip brief")
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2022-05-28 12:07:40,897 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-28 12:07:41,060 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 766, in _auth
+    raise saved_exception
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 753, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/transport.py", line 1564, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/auth_handler.py", line 259, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 972, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.ssh_exception.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+Authentication failed.
+
+2022-05-28 12:07:41,060 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test.py", line 18, in show_output
+    task.run(task=netmiko_send_command, command_string = "show int ip brief")
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2022-05-28 12:07:41,065 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 766, in _auth
+    raise saved_exception
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 753, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/transport.py", line 1564, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/auth_handler.py", line 259, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 972, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.ssh_exception.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+Authentication failed.
+
+2022-05-28 12:07:41,066 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test.py", line 18, in show_output
+    task.run(task=netmiko_send_command, command_string = "show int ip brief")
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2022-05-28 12:08:51,746 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-28 12:08:51,865 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 766, in _auth
+    raise saved_exception
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 753, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/transport.py", line 1564, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/auth_handler.py", line 259, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 972, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.ssh_exception.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+Authentication failed.
+
+2022-05-28 12:08:51,866 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show int ip brief")
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-28 12:08:51,891 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 766, in _auth
+    raise saved_exception
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/client.py", line 753, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/transport.py", line 1564, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/paramiko/auth_handler.py", line 259, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 15, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/base_connection.py", line 972, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.ssh_exception.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_asa 192.168.100.243:22
+
+
+Authentication failed.
+
+2022-05-28 12:08:51,892 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show int ip brief")
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-28 12:09:55,164 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-28 12:10:21,405 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-28 12:35:31,014 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-28 12:35:31,451 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 88, in send_command
+    output = super().send_command(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+TypeError: send_command() got an unexpected keyword argument 'user_genie'
+
+2022-05-28 12:35:31,451 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show int ip brief", user_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-28 12:35:31,463 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 88, in send_command
+    output = super().send_command(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+TypeError: send_command() got an unexpected keyword argument 'user_genie'
+
+2022-05-28 12:35:31,464 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show int ip brief", user_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-28 12:35:31,627 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'check ip int brief' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/cisco/cisco_asa_ssh.py", line 88, in send_command
+    output = super().send_command(*args, **kwargs)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+TypeError: send_command() got an unexpected keyword argument 'user_genie'
+
+2022-05-28 12:35:31,627 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'show_output' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/test.py", line 18, in show_output
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show int ip brief", user_genie = True)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: check ip int brief (failed)
+
+
+2022-05-28 12:35:43,593 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-28 12:38:19,518 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-28 13:49:10,968 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-28 13:49:39,240 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-28 14:23:19,783 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['facts', 'interfaces']} on 3 hosts
+2022-05-28 14:23:19,785 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/napalm/base/__init__.py", line 97, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "cisco_asa". Is the library installed?
+
+2022-05-28 14:23:19,786 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/napalm/base/__init__.py", line 97, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "cisco_asa". Is the library installed?
+
+2022-05-28 14:23:19,787 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/napalm/base/__init__.py", line 97, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "cisco_asa". Is the library installed?
+
+2022-05-29 08:59:23,010 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['facts', 'interfaces']} on 3 hosts
+2022-05-29 08:59:23,012 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-01': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/napalm/base/__init__.py", line 97, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "cisco_asa". Is the library installed?
+
+2022-05-29 08:59:23,013 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-02': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/napalm/base/__init__.py", line 97, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "cisco_asa". Is the library installed?
+
+2022-05-29 08:59:23,014 - nornir.core.task -    ERROR -      start() - Host 'BKR-VFW-03': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+  File "/home/gerard/nornir_flask/.venv/lib64/python3.9/site-packages/napalm/base/__init__.py", line 97, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "cisco_asa". Is the library installed?
+
+2022-05-29 09:00:19,075 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-29 09:00:32,464 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-29 09:31:04,837 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-29 09:31:57,371 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts
+2022-05-29 09:37:26,583 -  nornir.core -     INFO -        run() - Running task 'show_output' with args {} on 3 hosts

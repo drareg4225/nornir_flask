@@ -1,0 +1,13 @@
+# devices:
+#   username: "admin"
+#   password: "C1sc0123"
+
+# asa:
+#   platform: "cisco_asa"
+#   groups: ["devices"]
+
+--- 
+
+asa:
+  port: 22
+  platform: "cisco_asa"
