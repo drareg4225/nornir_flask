@@ -16,15 +16,28 @@ startTime = datetime.now()
 
 def show_output(task):
     task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+    # task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "check ip int brief  ", use_textfsm = True)
+    task.run(task=netmiko_send_command, name = "show inventory", command_string = "show inventory", use_genie = True)
+    task.run(task=netmiko_send_command, name = "show nameif", command_string = "show nameif", use_genie = True)
+    task.run(task=netmiko_send_command, name = "show version", command_string = "show version", use_genie = True)
 
 # results = nr.run(task=napalm_get, getters=["facts","interfaces"])
 
 def show_data():
     nr = InitNornir(config_file="config.yaml")
+    nr = nr.filter( role = 'BKR-BCP-VPN')
+    
     results = nr.run(task = show_output)
+    nr.close_connections()
     return results
-# results = show_data()
+results = show_data()
 
+# data1 = {}
+
+# for key in results.keys():
+#     data1[key] = results[key][1].result
+
+# print(data1)
 # for key in results.keys():
 #     print(results[key][1].result)
 #     print("next")

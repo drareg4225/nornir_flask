@@ -8,6 +8,10 @@
 
 --- 
 
-asa:
+# BKR-BCP-VPN:
+#   port: 22
+#   platform: "cisco_asa"
+
+BKR:
   port: 22
   platform: "cisco_asa"

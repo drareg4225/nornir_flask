@@ -7,11 +7,19 @@ app = Flask(__name__)
 @app.route("/")
 def welcome():
     results = show_data()
-    return render_template("CPU_UTIL.html", firewalls = results )
+    data_dict = {}
+    for key in results.keys():
+        data_dict[key] = results[key][1].result
+    # data_dict = { results.keys()[i]: results[results.keys()[i]][1].result for i in len((results.keys()))}
+    return render_template("CPU_UTIL.html", firewalls = data_dict )
+
+
 
 
 if __name__ == "__main__":        # on running python app.py
-    app.run(debug=True)
+    app.debug = True
+    # app.run(debug=True)
+    app.run(host="0.0.0.0")
 
 
 

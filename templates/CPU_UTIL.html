@@ -53,11 +53,12 @@
 </div> -->
 
 <p>Collapsible Set:</p>
-{% for firewall in results.keys() %}
-<button class="collapsible">{{ results[firewall][1].result }}</button>
+{% for firewall in firewalls %}
+<button class="collapsible">{{ firewall }}</button>
 <div class="content">
-  <p>{{ }}</p>
+  <p>{{ firewalls[firewall]  }}</p>
 </div>
+{% endfor %}
 
 <!-- <button class="collapsible">Open Section 2</button>
 <div class="content">
