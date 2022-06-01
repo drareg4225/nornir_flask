@@ -1,0 +1,58 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+<p><button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">SHOW ALL</button></p>
+{% for firewall in firewalls %}
+<p> {{firewall}}</p>
+<p>
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample{{loop.index}}1" role="button" aria-expanded="false" aria-controls="multiCollapseExample{{loop.index}}1"> SHOW IP INT BRIEF</a>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample{{loop.index}}2" aria-expanded="false" aria-controls="multiCollapseExample{{loop.index}}2">SHOW INVENTORY</button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample{{loop.index}}3" aria-expanded="false" aria-controls="multiCollapseExample{{loop.index}}3">SHOW NAMEIF</button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample{{loop.index}}4" aria-expanded="false" aria-controls="multiCollapseExample{{loop.index}}4">SHOW VERSION</button>
+  </p>
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="multiCollapseExample{{loop.index}}1">
+        <div class="card card-body">
+          {% for items in results[firewall][1].result['interfaces'] %}
+            {{ items }}
+          {% endfor%}
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="collapse multi-collapse" id="multiCollapseExample{{loop.index}}2">
+        <div class="card card-body">
+            {{ results[firewall][2].result }}
+        </div>
+      </div>
+    </div>
+    <div class="col">
+        <div class="collapse multi-collapse" id="multiCollapseExample{{loop.index}}3">
+          <div class="card card-body">
+            {{ results[firewall][3].result }}
+          </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="collapse multi-collapse" id="multiCollapseExample{{loop.index}}4">
+          <div class="card card-body">
+            {{ results[firewall][4].result }}
+          </div>
+        </div>
+    </div>
+  </div>
+{% endfor %}
+  <!-- <p>Collapsible Set:</p>
+  {% for firewall in firewalls %}
+  <button class="collapsible">{{ firewall }}</button>
+  <div class="content">
+    <p>{{ firewalls[firewall] }}</p>
+  </div>
+  {% endfor %}
+  </body> -->
+
+{% endblock %}

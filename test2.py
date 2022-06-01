@@ -15,7 +15,7 @@ startTime = datetime.now()
 # nr.inventory.defaults.password = password
 
 def show_output(task):
-    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show cpu usage  ", use_genie = True)
+    task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "show int ip brief", use_genie = True)
     # task.run(task=netmiko_send_command, name = "check ip int brief", command_string = "check ip int brief  ", use_textfsm = True)
     task.run(task=netmiko_send_command, name = "show inventory", command_string = "show inventory", use_genie = True)
     task.run(task=netmiko_send_command, name = "show nameif", command_string = "show nameif", use_genie = True)
@@ -30,7 +30,6 @@ def show_data():
     results = nr.run(task = show_output)
     nr.close_connections()
     return results
-results = show_data()
 
 # data1 = {}
 

@@ -8,12 +8,20 @@ app = Flask(__name__)
 def welcome():
     results = show_data()
     data_dict = {}
-    for key in results.keys():
-        data_dict[key] = results[key][1].result
+    # for key in results.keys():
+    #     data_dict[key] = results[key][1].result
     # data_dict = { results.keys()[i]: results[results.keys()[i]][1].result for i in len((results.keys()))}
-    return render_template("CPU_UTIL.html", firewalls = data_dict )
+    # return render_template("CPU_UTIL2.html", firewalls = data_dict )
+    return render_template("CPU_UTIL2.html", firewalls = results.keys() , results = results )
+    # return render_template("CPU_UTIL2.html" )
 
+@app.route("/home")
+def home():
+    return render_template("portal.html")
 
+@app.route("/hostname/<name>")
+def host_details(name):
+    return render_template("host_details.html",name = name)
 
 
 if __name__ == "__main__":        # on running python app.py
