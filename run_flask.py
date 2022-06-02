@@ -6,7 +6,15 @@ app = Flask(__name__)
 
 @app.route("/")
 def welcome():
-    results = show_data()
+    return render_template("portal.html")
+
+@app.route("/home")
+def home():
+    return render_template("portal.html")
+
+@app.route("/BKR-BCP-VPN")
+def bkr_bcp_vpn():
+    results = show_data('BKR-BCP-VPN')
     data_dict = {}
     # for key in results.keys():
     #     data_dict[key] = results[key][1].result
@@ -14,10 +22,6 @@ def welcome():
     # return render_template("CPU_UTIL2.html", firewalls = data_dict )
     return render_template("CPU_UTIL2.html", firewalls = results.keys() , results = results )
     # return render_template("CPU_UTIL2.html" )
-
-@app.route("/home")
-def home():
-    return render_template("portal.html")
 
 @app.route("/hostname/<name>")
 def host_details(name):
