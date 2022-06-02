@@ -17,8 +17,8 @@ startTime = datetime.now()
 def show_output(task):
     task.run(task=netmiko_send_command, name = "show version", command_string = "show version", use_genie = True)
     task.run(task=netmiko_send_command, name = "show cpu usage", command_string = "show cpu usage | inc utilization")
-    task.run(task=netmiko_send_command, name = "show nameif", command_string = "show nameif", use_genie = True)
-    task.run(task=netmiko_send_command, name = "show version", command_string = "show version", use_genie = True)
+    task.run(task=netmiko_send_command, name = "show vpn-sessiondb", command_string = "show vpn-sessiondb", use_genie = True)
+    # task.run(task=netmiko_send_command, name = "show version", command_string = "show version", use_genie = True)
 
 # results = nr.run(task=napalm_get, getters=["facts","interfaces"])
 
